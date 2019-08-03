@@ -6,8 +6,10 @@ import android.os.Build;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
 import com.bumptech.glide.load.model.Model;
 import com.bumptech.glide.request.target.Target;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collection;

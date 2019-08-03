@@ -20,6 +20,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
+
 import com.bumptech.glide.gifdecoder.GifDecoder;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.ResourceDecoder;
@@ -81,6 +82,7 @@ import com.bumptech.glide.request.target.ImageViewTargetFactory;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
+
 import java.io.File;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
@@ -517,7 +519,7 @@ public class Glide implements ComponentCallbacks2 {
   }
 
   /**
-   * Returns the {@link BitmapPool} used to
+   * Returns the {@link com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool} used to
    * temporarily store {@link Bitmap}s so they can be reused to avoid garbage
    * collections.
    *
@@ -531,7 +533,7 @@ public class Glide implements ComponentCallbacks2 {
    * serve any useful purpose. </p>
    *
    * <p> The primary reason this object is exposed is for use in custom
-   * {@link ResourceDecoder}s and
+   * {@link com.bumptech.glide.load.ResourceDecoder}s and
    * {@link com.bumptech.glide.load.Transformation}s. Use outside of these classes is not generally
    * recommended. </p>
    */
@@ -563,7 +565,7 @@ public class Glide implements ComponentCallbacks2 {
   }
 
   /**
-   * Pre-fills the {@link BitmapPool} using the given
+   * Pre-fills the {@link com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool} using the given
    * sizes.
    *
    * <p> Enough Bitmaps are added to completely fill the pool, so most or all of the Bitmaps
@@ -578,13 +580,13 @@ public class Glide implements ComponentCallbacks2 {
    * <p> This method should be used with caution, overly aggressive pre-filling is substantially
    * worse than not pre-filling at all. Pre-filling should only be started in onCreate to avoid
    * constantly clearing and re-filling the
-   * {@link BitmapPool}. Rotation should be carefully
+   * {@link com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool}. Rotation should be carefully
    * considered as well. It may be worth calling this method only when no saved instance state
    * exists so that pre-filling only happens when the Activity is first created, rather than on
    * every rotation. </p>
    *
    * @param bitmapAttributeBuilders The list of
-   * {@link PreFillType.Builder Builders} representing
+   * {@link com.bumptech.glide.load.engine.prefill.PreFillType.Builder Builders} representing
    * individual sizes and configurations of {@link Bitmap}s to be pre-filled.
    */
   @SuppressWarnings("unused") // Public API
@@ -699,8 +701,8 @@ public class Glide implements ComponentCallbacks2 {
    * @return A RequestManager for the top level application that can be used to start a load.
    * @see #with(Activity)
    * @see #with(android.app.Fragment)
-   * @see #with(Fragment)
-   * @see #with(FragmentActivity)
+   * @see #with(android.support.v4.app.Fragment)
+   * @see #with(android.support.v4.app.FragmentActivity)
    */
   @NonNull
   public static RequestManager with(@NonNull Context context) {
@@ -721,8 +723,8 @@ public class Glide implements ComponentCallbacks2 {
 
   /**
    * Begin a load with Glide that will tied to the give
-   * {@link FragmentActivity}'s lifecycle and that uses the given
-   * {@link FragmentActivity}'s default options.
+   * {@link android.support.v4.app.FragmentActivity}'s lifecycle and that uses the given
+   * {@link android.support.v4.app.FragmentActivity}'s default options.
    *
    * @param activity The activity to use.
    * @return A RequestManager for the given FragmentActivity that can be used to start a load.
@@ -734,8 +736,8 @@ public class Glide implements ComponentCallbacks2 {
 
   /**
    * Begin a load with Glide that will be tied to the given
-   * {@link Fragment}'s lifecycle and that uses the given
-   * {@link Fragment}'s default options.
+   * {@link android.support.v4.app.Fragment}'s lifecycle and that uses the given
+   * {@link android.support.v4.app.Fragment}'s default options.
    *
    * @param fragment The fragment to use.
    * @return A RequestManager for the given Fragment that can be used to start a load.

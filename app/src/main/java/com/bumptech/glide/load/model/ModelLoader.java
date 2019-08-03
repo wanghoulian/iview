@@ -2,10 +2,12 @@ package com.bumptech.glide.load.model;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.data.DataFetcher;
 import com.bumptech.glide.util.Preconditions;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -35,9 +37,9 @@ import java.util.List;
 public interface ModelLoader<Model, Data> {
 
   /**
-   * Contains a set of {@link Key Keys} identifying the source of the load,
+   * Contains a set of {@link com.bumptech.glide.load.Key Keys} identifying the source of the load,
    * alternate cache keys pointing to equivalent data, and a
-   * {@link DataFetcher} that can be used to fetch data not found in
+   * {@link com.bumptech.glide.load.data.DataFetcher} that can be used to fetch data not found in
    * cache.
    *
    * @param <Data> The type of data that well be loaded.
@@ -52,7 +54,7 @@ public interface ModelLoader<Model, Data> {
     }
 
     public LoadData(@NonNull Key sourceKey, @NonNull List<Key> alternateKeys,
-        @NonNull DataFetcher<Data> fetcher) {
+                    @NonNull DataFetcher<Data> fetcher) {
       this.sourceKey = Preconditions.checkNotNull(sourceKey);
       this.alternateKeys = Preconditions.checkNotNull(alternateKeys);
       this.fetcher = Preconditions.checkNotNull(fetcher);
@@ -60,10 +62,10 @@ public interface ModelLoader<Model, Data> {
   }
 
   /**
-   * Returns a {@link LoadData} containing a
-   * {@link DataFetcher} required to decode the resource
-   * represented by this model, as well as a set of {@link Key Keys} that
-   * identify the data loaded by the {@link DataFetcher} as well as an
+   * Returns a {@link com.bumptech.glide.load.model.ModelLoader.LoadData} containing a
+   * {@link com.bumptech.glide.load.data.DataFetcher} required to decode the resource
+   * represented by this model, as well as a set of {@link com.bumptech.glide.load.Key Keys} that
+   * identify the data loaded by the {@link com.bumptech.glide.load.data.DataFetcher} as well as an
    * optional list of alternate keys from which equivalent data can be loaded. The
    * {@link DataFetcher} will not be used if the resource is already cached.
    *

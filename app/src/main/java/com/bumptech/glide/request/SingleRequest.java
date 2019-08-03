@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.util.Pools;
 import android.util.Log;
+
 import com.bumptech.glide.GlideContext;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
@@ -24,10 +25,11 @@ import com.bumptech.glide.util.Synthetic;
 import com.bumptech.glide.util.Util;
 import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
+
 import java.util.List;
 
 /**
- * A {@link Request} that loads a {@link Resource} into a given
+ * A {@link Request} that loads a {@link com.bumptech.glide.load.engine.Resource} into a given
  * {@link Target}.
  *
  * @param <R> The type of the resource that will be transcoded from the loaded resource.

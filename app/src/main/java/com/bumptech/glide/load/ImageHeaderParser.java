@@ -1,7 +1,9 @@
 package com.bumptech.glide.load;
 
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;

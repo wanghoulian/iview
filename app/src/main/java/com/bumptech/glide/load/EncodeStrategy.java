@@ -1,7 +1,7 @@
 package com.bumptech.glide.load;
 
 /**
- * Details how an {@link ResourceEncoder} will encode a resource to cache.
+ * Details how an {@link com.bumptech.glide.load.ResourceEncoder} will encode a resource to cache.
  */
 public enum EncodeStrategy {
   /**

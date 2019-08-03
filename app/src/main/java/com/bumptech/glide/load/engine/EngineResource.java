@@ -2,12 +2,13 @@ package com.bumptech.glide.load.engine;
 
 import android.os.Looper;
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.Preconditions;
 
 /**
  * A wrapper resource that allows reference counting a wrapped {@link
- * Resource} interface.
+ * com.bumptech.glide.load.engine.Resource} interface.
  *
  * @param <Z> The type of data returned by the wrapped {@link Resource}.
  */

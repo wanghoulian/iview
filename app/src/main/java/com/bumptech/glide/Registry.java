@@ -3,6 +3,7 @@ package com.bumptech.glide;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.util.Pools.Pool;
+
 import com.bumptech.glide.load.Encoder;
 import com.bumptech.glide.load.ImageHeaderParser;
 import com.bumptech.glide.load.Options;
@@ -25,6 +26,7 @@ import com.bumptech.glide.provider.ModelToResourceClassCache;
 import com.bumptech.glide.provider.ResourceDecoderRegistry;
 import com.bumptech.glide.provider.ResourceEncoderRegistry;
 import com.bumptech.glide.util.pool.FactoryPools;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -338,7 +340,7 @@ public class Registry {
   }
 
   /**
-   * Registers a new {@link DataRewinder.Factory} to handle a
+   * Registers a new {@link com.bumptech.glide.load.data.DataRewinder.Factory} to handle a
    * non-default data type that can be rewind to allow for efficient reads of file headers.
    */
   @NonNull
@@ -596,7 +598,7 @@ public class Registry {
   }
 
   /**
-   * Thrown when no {@link ModelLoader} is registered for a given
+   * Thrown when no {@link com.bumptech.glide.load.model.ModelLoader} is registered for a given
    * model class.
    */
   // Never serialized by Glide.

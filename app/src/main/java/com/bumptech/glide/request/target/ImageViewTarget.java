@@ -5,10 +5,11 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
+
 import com.bumptech.glide.request.transition.Transition;
 
 /**
- * A base {@link Target} for displaying resources in {@link
+ * A base {@link com.bumptech.glide.request.target.Target} for displaying resources in {@link
  * ImageView}s.
  *
  * @param <Z> The type of resource that this target will display in the wrapped {@link

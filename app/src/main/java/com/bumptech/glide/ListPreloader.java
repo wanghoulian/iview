@@ -3,11 +3,13 @@ package com.bumptech.glide;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.widget.AbsListView;
+
 import com.bumptech.glide.request.target.BaseTarget;
 import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Synthetic;
 import com.bumptech.glide.util.Util;
+
 import java.util.List;
 import java.util.Queue;
 
@@ -111,7 +113,7 @@ public class ListPreloader<T> implements AbsListView.OnScrollListener {
   }
 
   /**
-   * Constructor for {@link ListPreloader} that accepts interfaces for providing
+   * Constructor for {@link com.bumptech.glide.ListPreloader} that accepts interfaces for providing
    * the dimensions of images to preload, the list of models to preload for a given position, and
    * the request to use to load images.
    *

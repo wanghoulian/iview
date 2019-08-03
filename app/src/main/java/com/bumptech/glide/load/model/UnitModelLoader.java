@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.model;
 
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.Options;
@@ -82,7 +83,7 @@ public class UnitModelLoader<Model> implements ModelLoader<Model, Model> {
   }
 
   /**
-   * Factory for producing {@link UnitModelLoader}s.
+   * Factory for producing {@link com.bumptech.glide.load.model.UnitModelLoader}s.
    *
    * @param <Model> The type of model that will also be returned as decodable data.
    */

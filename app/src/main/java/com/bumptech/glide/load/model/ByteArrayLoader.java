@@ -1,11 +1,13 @@
 package com.bumptech.glide.load.model;
 
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.data.DataFetcher;
 import com.bumptech.glide.signature.ObjectKey;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
@@ -92,7 +94,7 @@ public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
   }
 
   /**
-   * Factory for {@link ByteArrayLoader} and
+   * Factory for {@link com.bumptech.glide.load.model.ByteArrayLoader} and
    * {@link ByteBuffer}.
    */
   public static class ByteBufferFactory implements ModelLoaderFactory<byte[], ByteBuffer> {

@@ -2,7 +2,9 @@ package com.bumptech.glide.load;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
 import com.bumptech.glide.util.Preconditions;
+
 import java.security.MessageDigest;
 
 /**
@@ -64,20 +66,20 @@ public final class Option<T> {
 
   /**
    * Returns a new {@link Option} that uses the given {@link
-   * CacheKeyUpdater} to update disk cache keys.
+   * com.bumptech.glide.load.Option.CacheKeyUpdater} to update disk cache keys.
    *
    * @param key A unique package prefixed {@link String} that identifies this option (must be
    *            stable across builds, so {@link Class#getName()} should <em>not</em> be used).
    */
   @NonNull
   public static <T> Option<T> disk(@NonNull String key,
-      @NonNull CacheKeyUpdater<T> cacheKeyUpdater) {
+                                   @NonNull CacheKeyUpdater<T> cacheKeyUpdater) {
     return new Option<>(key, null, cacheKeyUpdater);
   }
 
   /**
    * Returns a new {@link Option} that uses the given {@link
-   * CacheKeyUpdater} to update disk cache keys and provides
+   * com.bumptech.glide.load.Option.CacheKeyUpdater} to update disk cache keys and provides
    * the given value as the default value.
    *
    * @param key A unique package prefixed {@link String} that identifies this option (must be
@@ -85,7 +87,7 @@ public final class Option<T> {
    */
   @NonNull
   public static <T> Option<T> disk(@NonNull String key, @Nullable T defaultValue,
-      @NonNull CacheKeyUpdater<T> cacheKeyUpdater) {
+                                   @NonNull CacheKeyUpdater<T> cacheKeyUpdater) {
     return new Option<>(key, defaultValue, cacheKeyUpdater);
   }
 
@@ -108,7 +110,7 @@ public final class Option<T> {
 
   /**
    * Updates the given {@link MessageDigest} used to construct a cache key with the given
-   * value using the {@link CacheKeyUpdater} optionally provided in
+   * value using the {@link com.bumptech.glide.load.Option.CacheKeyUpdater} optionally provided in
    * the constructor.
    */
   public void update(@NonNull T value, @NonNull MessageDigest messageDigest) {

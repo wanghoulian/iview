@@ -1,12 +1,14 @@
 package com.bumptech.glide.load.data;
 
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.util.Preconditions;
+
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Stores a mapping of data class to {@link DataRewinder.Factory} and
+ * Stores a mapping of data class to {@link com.bumptech.glide.load.data.DataRewinder.Factory} and
  * allows registration of new types and factories.
  */
 public class DataRewinderRegistry {

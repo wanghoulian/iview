@@ -8,12 +8,14 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 import android.util.Log;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.data.DataFetcher;
 import com.bumptech.glide.load.data.ExifOrientationStream;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;

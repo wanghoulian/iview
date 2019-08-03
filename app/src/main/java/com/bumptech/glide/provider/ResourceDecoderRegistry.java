@@ -1,8 +1,10 @@
 package com.bumptech.glide.provider;
 
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.util.Synthetic;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +35,7 @@ public class ResourceDecoderRegistry {
   @NonNull
   @SuppressWarnings("unchecked")
   public synchronized <T, R> List<ResourceDecoder<T, R>> getDecoders(@NonNull Class<T> dataClass,
-      @NonNull Class<R> resourceClass) {
+                                                                     @NonNull Class<R> resourceClass) {
     List<ResourceDecoder<T, R>> result = new ArrayList<>();
     for (String bucket : bucketPriorityList) {
       List<Entry<?, ?>> entries = decoders.get(bucket);

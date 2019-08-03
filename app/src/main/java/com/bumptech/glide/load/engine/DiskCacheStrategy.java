@@ -116,7 +116,7 @@ public abstract class DiskCacheStrategy {
   /**
    * Tries to intelligently choose a strategy based on the data source of the
    * {@link com.bumptech.glide.load.data.DataFetcher} and the
-   * {@link EncodeStrategy} of the
+   * {@link com.bumptech.glide.load.EncodeStrategy} of the
    * {@link com.bumptech.glide.load.ResourceEncoder} (if an
    * {@link com.bumptech.glide.load.ResourceEncoder} is available).
    */

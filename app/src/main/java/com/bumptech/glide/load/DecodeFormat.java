@@ -2,7 +2,7 @@ package com.bumptech.glide.load;
 
 /**
  * Options for setting the value of {@link android.graphics.Bitmap#getConfig()} for
- * {@link android.graphics.Bitmap}s returned by {@link ResourceDecoder}s.
+ * {@link android.graphics.Bitmap}s returned by {@link com.bumptech.glide.load.ResourceDecoder}s.
  *
  * <p> Note - In some cases it may not be possible to obey the requested setting, not all
  * {@link com.bumptech.glide.load.resource.bitmap.Downsampler}s support setting formats and certain
@@ -11,7 +11,7 @@ package com.bumptech.glide.load;
  */
 public enum DecodeFormat {
   /**
-   * Bitmaps returned by the {@link ResourceDecoder}.
+   * Bitmaps returned by the {@link com.bumptech.glide.load.ResourceDecoder}.
    * should return {@link android.graphics.Bitmap.Config#ARGB_8888} for
    * {@link android.graphics.Bitmap#getConfig()} when possible.
    *

@@ -8,15 +8,17 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
+
 import com.bumptech.glide.util.Synthetic;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * An {@link BitmapPool} implementation that uses an
- * {@link LruPoolStrategy} to bucket {@link Bitmap}s
+ * An {@link com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool} implementation that uses an
+ * {@link com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy} to bucket {@link Bitmap}s
  * and then uses an LRU eviction policy to evict {@link Bitmap}s from the least
  * recently used bucket in order to keep the pool below a given maximum size limit.
  */

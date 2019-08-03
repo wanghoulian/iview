@@ -14,9 +14,11 @@ import android.view.View.OnAttachStateChangeListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+
 import com.bumptech.glide.request.Request;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Synthetic;
+
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -124,7 +126,8 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
   }
 
   @SuppressWarnings("WeakerAccess")
-  @Synthetic void resumeMyRequest() {
+  @Synthetic
+  void resumeMyRequest() {
     Request request = getRequest();
     if (request != null && request.isPaused()) {
       request.begin();
@@ -132,7 +135,8 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
   }
 
   @SuppressWarnings("WeakerAccess")
-  @Synthetic void pauseMyRequest() {
+  @Synthetic
+  void pauseMyRequest() {
     Request request = getRequest();
     if (request != null && !request.isCancelled() && !request.isPaused()) {
       isClearedByUs = true;
@@ -251,7 +255,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
    * resource, but will also result in incorrect images being loaded and lots of flashing of images
    * in lists. As a result, this will throw an {@link IllegalArgumentException} if {@link
    * View#getTag()}} returns a non null object that is not an {@link
-   * Request}. </p>
+   * com.bumptech.glide.request.Request}. </p>
    */
   @Override
   @Nullable
@@ -329,7 +333,8 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     static Integer maxDisplayLength;
     private final View view;
     private final List<SizeReadyCallback> cbs = new ArrayList<>();
-    @Synthetic boolean waitForLayout;
+    @Synthetic
+    boolean waitForLayout;
 
     @Nullable private SizeDeterminerLayoutListener layoutListener;
 

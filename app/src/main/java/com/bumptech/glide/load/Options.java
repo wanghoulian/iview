@@ -4,7 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.util.ArrayMap;
 import android.support.v4.util.SimpleArrayMap;
+
 import com.bumptech.glide.util.CachedHashCodeArrayMap;
+
 import java.security.MessageDigest;
 
 /**
@@ -61,7 +63,7 @@ public final class Options implements Key {
 
   @SuppressWarnings("unchecked")
   private static <T> void updateDiskCacheKey(@NonNull Option<T> option, @NonNull Object value,
-      @NonNull MessageDigest md) {
+                                             @NonNull MessageDigest md) {
     option.update((T) value, md);
   }
 }

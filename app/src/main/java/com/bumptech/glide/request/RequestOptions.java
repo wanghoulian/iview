@@ -10,6 +10,7 @@ import android.support.annotation.FloatRange;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.Key;
@@ -35,6 +36,7 @@ import com.bumptech.glide.signature.EmptySignature;
 import com.bumptech.glide.util.CachedHashCodeArrayMap;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
+
 import java.util.Map;
 
 /**
@@ -378,7 +380,7 @@ public class RequestOptions implements Cloneable {
   }
 
   /**
-   * Returns a {@link RequestOptions} with {@link
+   * Returns a {@link com.bumptech.glide.request.RequestOptions} with {@link
    * #encodeQuality(int)} called with the given quality.
    */
   @SuppressWarnings("WeakerAccess") // Public API
@@ -389,7 +391,7 @@ public class RequestOptions implements Cloneable {
   }
 
   /**
-   * Returns a {@link RequestOptions} with {@link
+   * Returns a {@link com.bumptech.glide.request.RequestOptions} with {@link
    * #encodeFormat(Bitmap.CompressFormat)} called with the given format.
    */
   @SuppressWarnings("WeakerAccess") // Public API
@@ -400,7 +402,7 @@ public class RequestOptions implements Cloneable {
   }
 
   /**
-   * Returns a new {@link RequestOptions} with {@link #dontAnimate()}
+   * Returns a new {@link com.bumptech.glide.request.RequestOptions} with {@link #dontAnimate()}
    * called.
    */
   @SuppressWarnings("WeakerAccess") // Public API
@@ -871,7 +873,7 @@ public class RequestOptions implements Cloneable {
 
   /**
    * Sets the value for key
-   * {@link BitmapEncoder#COMPRESSION_FORMAT}.
+   * {@link com.bumptech.glide.load.resource.bitmap.BitmapEncoder#COMPRESSION_FORMAT}.
    */
   @NonNull
   @CheckResult
@@ -945,7 +947,7 @@ public class RequestOptions implements Cloneable {
    * {@link Downsampler#ALLOW_HARDWARE_CONFIG}, Glide will set the value per request based on
    * whether or not a {@link Transformation} is applied and if one is, the type of
    * {@link Transformation} applied. Built in transformations like {@link FitCenter} and
-   * {@link DownsampleStrategy.CenterOutside} can safely use
+   * {@link com.bumptech.glide.load.resource.bitmap.DownsampleStrategy.CenterOutside} can safely use
    * {@link Bitmap.Config#HARDWARE} because they can be entirely replaced by
    * scaling within {@link Downsampler}. {@link Transformation}s like {@link #circleCrop()} that
    * can't be replicated by {@link Downsampler} cannot use {@link Bitmap.Config#HARDWARE} because
@@ -975,11 +977,11 @@ public class RequestOptions implements Cloneable {
    * Sets the read and write timeout for the http requests used to load the image.
    *
    * <p>This is a component option specific to Glide's default networking library and
-   * {@link HttpGlideUrlLoader}. If you use any other
+   * {@link com.bumptech.glide.load.model.stream.HttpGlideUrlLoader}. If you use any other
    * networking library including Glide's Volley or OkHttp integration libraries, this option will
    * be ignored.
    *
-   * @see HttpGlideUrlLoader#TIMEOUT
+   * @see com.bumptech.glide.load.model.stream.HttpGlideUrlLoader#TIMEOUT
    * @param timeoutMs The read and write timeout in milliseconds.
    */
   @NonNull
@@ -989,7 +991,7 @@ public class RequestOptions implements Cloneable {
   }
 
   /**
-   * Applies {@link CenterCrop} to all default types, and
+   * Applies {@link com.bumptech.glide.load.resource.bitmap.CenterCrop} to all default types, and
    * ignores unknown types.
    *
    * <p>This will override previous calls to {@link #dontTransform()}.
@@ -1053,7 +1055,7 @@ public class RequestOptions implements Cloneable {
   }
 
   /**
-   * Applies {@link CenterInside} to all default types,
+   * Applies {@link com.bumptech.glide.load.resource.bitmap.CenterInside} to all default types,
    * {@link DownsampleStrategy#CENTER_INSIDE} to image types, and ignores unknown types.
    *
    * <p>This will override previous calls to {@link #dontTransform()} and previous calls to
@@ -1118,7 +1120,7 @@ public class RequestOptions implements Cloneable {
   @SuppressWarnings({"WeakerAccess", "CheckResult"})
   @NonNull
   final RequestOptions optionalTransform(@NonNull DownsampleStrategy downsampleStrategy,
-      @NonNull Transformation<Bitmap> transformation) {
+                                         @NonNull Transformation<Bitmap> transformation) {
     if (isAutoCloneEnabled) {
       return clone().optionalTransform(downsampleStrategy, transformation);
     }
@@ -1133,7 +1135,7 @@ public class RequestOptions implements Cloneable {
   @NonNull
   @CheckResult
   final RequestOptions transform(@NonNull DownsampleStrategy downsampleStrategy,
-      @NonNull Transformation<Bitmap> transformation) {
+                                 @NonNull Transformation<Bitmap> transformation) {
     if (isAutoCloneEnabled) {
       return clone().transform(downsampleStrategy, transformation);
     }
@@ -1144,13 +1146,13 @@ public class RequestOptions implements Cloneable {
 
   @NonNull
   private RequestOptions scaleOnlyTransform(
-      @NonNull DownsampleStrategy strategy, @NonNull Transformation<Bitmap> transformation) {
+          @NonNull DownsampleStrategy strategy, @NonNull Transformation<Bitmap> transformation) {
     return scaleOnlyTransform(strategy, transformation, true /*isTransformationRequired*/);
   }
 
   @NonNull
   private RequestOptions optionalScaleOnlyTransform(
-      @NonNull DownsampleStrategy strategy, @NonNull Transformation<Bitmap> transformation) {
+          @NonNull DownsampleStrategy strategy, @NonNull Transformation<Bitmap> transformation) {
     return scaleOnlyTransform(strategy, transformation, false /*isTransformationRequired*/);
   }
 
@@ -1169,7 +1171,7 @@ public class RequestOptions implements Cloneable {
    * Applies the given {@link Transformation} for
    * {@link Bitmap Bitmaps} to the default types ({@link Bitmap},
    * {@link BitmapDrawable}, and
-   * {@link GifDrawable})
+   * {@link com.bumptech.glide.load.resource.gif.GifDrawable})
    * and throws an exception if asked to transform an unknown type.
    *
    * <p>This will override previous calls to {@link #dontTransform()}.
@@ -1190,7 +1192,7 @@ public class RequestOptions implements Cloneable {
    * Applies the given {@link Transformation}s in the given order for
    * {@link Bitmap Bitmaps} to the default types ({@link Bitmap},
    * {@link BitmapDrawable}, and
-   * {@link GifDrawable})
+   * {@link com.bumptech.glide.load.resource.gif.GifDrawable})
    * and throws an exception if asked to transform an unknown type.
    *
    * <p>This will override previous calls to {@link #dontTransform()}.
@@ -1211,7 +1213,7 @@ public class RequestOptions implements Cloneable {
    * Applies the given {@link Transformation} for
    * {@link Bitmap Bitmaps} to the default types ({@link Bitmap},
    * {@link BitmapDrawable}, and
-   * {@link GifDrawable}) and ignores unknown types.
+   * {@link com.bumptech.glide.load.resource.gif.GifDrawable}) and ignores unknown types.
    *
    * <p>This will override previous calls to {@link #dontTransform()}.
    *

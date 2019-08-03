@@ -1,19 +1,21 @@
 package com.bumptech.glide.load.resource.transcode;
 
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.util.Synthetic;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A class that allows {@link ResourceTranscoder}s to be
+ * A class that allows {@link com.bumptech.glide.load.resource.transcode.ResourceTranscoder}s to be
  * registered and retrieved by the classes they convert between.
  */
 public class TranscoderRegistry {
   private final List<Entry<?, ?>> transcoders = new ArrayList<>();
 
   /**
-   * Registers the given {@link ResourceTranscoder} using
+   * Registers the given {@link com.bumptech.glide.load.resource.transcode.ResourceTranscoder} using
    * the given classes so it can later be retrieved using the given classes.
    *
    * @param decodedClass    The class of the resource that the transcoder transcodes from.
@@ -30,7 +32,7 @@ public class TranscoderRegistry {
 
   /**
    * Returns the currently registered
-   * {@link ResourceTranscoder} for the given classes.
+   * {@link com.bumptech.glide.load.resource.transcode.ResourceTranscoder} for the given classes.
    *
    * @param resourceClass   The class of the resource that the transcoder transcodes from.
    * @param transcodedClass The class of the resource that the transcoder transcodes to.

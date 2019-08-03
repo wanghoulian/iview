@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
+
 import com.bumptech.glide.load.EncodeStrategy;
 import com.bumptech.glide.load.Option;
 import com.bumptech.glide.load.Options;
@@ -14,13 +15,14 @@ import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import com.bumptech.glide.util.LogTime;
 import com.bumptech.glide.util.Util;
 import com.bumptech.glide.util.pool.GlideTrace;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * An {@link ResourceEncoder} that writes {@link Bitmap}s
+ * An {@link com.bumptech.glide.load.ResourceEncoder} that writes {@link Bitmap}s
  * to {@link OutputStream}s.
  *
  * <p> {@link Bitmap}s that return true from

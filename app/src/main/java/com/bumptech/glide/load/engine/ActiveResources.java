@@ -8,11 +8,13 @@ import android.os.Process;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.EngineResource.ResourceListener;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Synthetic;
 import com.bumptech.glide.util.Util;
+
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
@@ -95,7 +97,8 @@ final class ActiveResources {
   }
 
   @SuppressWarnings("WeakerAccess")
-  @Synthetic void cleanupActiveReference(@NonNull ResourceWeakReference ref) {
+  @Synthetic
+  void cleanupActiveReference(@NonNull ResourceWeakReference ref) {
     Util.assertMainThread();
     activeEngineResources.remove(ref.key);
 
@@ -125,7 +128,8 @@ final class ActiveResources {
   }
 
   @SuppressWarnings("WeakerAccess")
-  @Synthetic void cleanReferenceQueue() {
+  @Synthetic
+  void cleanReferenceQueue() {
     while (!isShutdown) {
       try {
         ResourceWeakReference ref = (ResourceWeakReference) resourceReferenceQueue.remove();
@@ -173,10 +177,13 @@ final class ActiveResources {
 
   @VisibleForTesting
   static final class ResourceWeakReference extends WeakReference<EngineResource<?>> {
-    @SuppressWarnings("WeakerAccess") @Synthetic final Key key;
-    @SuppressWarnings("WeakerAccess") @Synthetic final boolean isCacheable;
+    @SuppressWarnings("WeakerAccess") @Synthetic
+    final Key key;
+    @SuppressWarnings("WeakerAccess") @Synthetic
+    final boolean isCacheable;
 
-    @Nullable @SuppressWarnings("WeakerAccess") @Synthetic Resource<?> resource;
+    @Nullable @SuppressWarnings("WeakerAccess") @Synthetic
+    Resource<?> resource;
 
     @Synthetic
     @SuppressWarnings("WeakerAccess")

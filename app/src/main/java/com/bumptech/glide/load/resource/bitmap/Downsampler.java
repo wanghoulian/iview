@@ -8,6 +8,7 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.util.Log;
+
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.ImageHeaderParser;
 import com.bumptech.glide.load.ImageHeaderParser.ImageType;
@@ -23,6 +24,7 @@ import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.util.LogTime;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
@@ -40,14 +42,14 @@ import java.util.Set;
 public final class Downsampler {
   static final String TAG = "Downsampler";
   /**
-   * Indicates the {@link DecodeFormat} that will be used in conjunction
+   * Indicates the {@link com.bumptech.glide.load.DecodeFormat} that will be used in conjunction
    * with the image format to determine the {@link Config} to provide to
    * {@link BitmapFactory.Options#inPreferredConfig} when decoding the image.
    */
   public static final Option<DecodeFormat> DECODE_FORMAT = Option.memory(
       "com.bumptech.glide.load.resource.bitmap.Downsampler.DecodeFormat", DecodeFormat.DEFAULT);
   /**
-   * Indicates the {@link DownsampleStrategy} option that
+   * Indicates the {@link com.bumptech.glide.load.resource.bitmap.DownsampleStrategy} option that
    * will be used to calculate the sample size to use to downsample an image given the original
    * and target dimensions of the image.
    *
@@ -115,9 +117,9 @@ public final class Downsampler {
   private static final Set<ImageType> TYPES_THAT_USE_POOL_PRE_KITKAT =
       Collections.unmodifiableSet(
           EnumSet.of(
-              ImageType.JPEG,
-              ImageType.PNG_A,
-              ImageType.PNG
+              ImageHeaderParser.ImageType.JPEG,
+              ImageHeaderParser.ImageType.PNG_A,
+              ImageHeaderParser.ImageType.PNG
           )
       );
   private static final Queue<BitmapFactory.Options> OPTIONS_QUEUE = Util.createQueue(0);
@@ -132,7 +134,7 @@ public final class Downsampler {
   private final HardwareConfigState hardwareConfigState = HardwareConfigState.getInstance();
 
   public Downsampler(List<ImageHeaderParser> parsers, DisplayMetrics displayMetrics,
-      BitmapPool bitmapPool, ArrayPool byteArrayPool) {
+                     BitmapPool bitmapPool, ArrayPool byteArrayPool) {
     this.parsers = parsers;
     this.displayMetrics = Preconditions.checkNotNull(displayMetrics);
     this.bitmapPool = Preconditions.checkNotNull(bitmapPool);
@@ -152,7 +154,7 @@ public final class Downsampler {
   /**
    * Returns a Bitmap decoded from the given {@link InputStream} that is rotated to match any EXIF
    * data present in the stream and that is downsampled according to the given dimensions and any
-   * provided  {@link DownsampleStrategy} option.
+   * provided  {@link com.bumptech.glide.load.resource.bitmap.DownsampleStrategy} option.
    *
    * @see #decode(InputStream, int, int, Options, DecodeCallbacks)
    */
@@ -164,10 +166,10 @@ public final class Downsampler {
   /**
    * Returns a Bitmap decoded from the given {@link InputStream} that is rotated to match any EXIF
    * data present in the stream and that is downsampled according to the given dimensions and any
-   * provided  {@link DownsampleStrategy} option.
+   * provided  {@link com.bumptech.glide.load.resource.bitmap.DownsampleStrategy} option.
    *
    * <p> If a Bitmap is present in the
-   * {@link BitmapPool} whose dimensions exactly match
+   * {@link com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool} whose dimensions exactly match
    * those of the image for the given InputStream is available, the operation is much less expensive
    * in terms of memory. </p>
    *
@@ -216,10 +218,10 @@ public final class Downsampler {
   }
 
   private Bitmap decodeFromWrappedStreams(InputStream is,
-      BitmapFactory.Options options, DownsampleStrategy downsampleStrategy,
-      DecodeFormat decodeFormat, boolean isHardwareConfigAllowed, int requestedWidth,
-      int requestedHeight, boolean fixBitmapToRequestedDimensions,
-      DecodeCallbacks callbacks) throws IOException {
+                                          BitmapFactory.Options options, DownsampleStrategy downsampleStrategy,
+                                          DecodeFormat decodeFormat, boolean isHardwareConfigAllowed, int requestedWidth,
+                                          int requestedHeight, boolean fixBitmapToRequestedDimensions,
+                                          DecodeCallbacks callbacks) throws IOException {
     long startTime = LogTime.getLogTime();
 
     int[] sourceDimensions = getDimensions(is, options, callbacks, bitmapPool);
@@ -665,7 +667,7 @@ public final class Downsampler {
   @SuppressWarnings("PMD.CollapsibleIfStatements")
   @TargetApi(Build.VERSION_CODES.O)
   private static void setInBitmap(
-      BitmapFactory.Options options, BitmapPool bitmapPool, int width, int height) {
+          BitmapFactory.Options options, BitmapPool bitmapPool, int width, int height) {
     @Nullable Config expectedConfig = null;
     // Avoid short circuiting, it appears to break on some devices.
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

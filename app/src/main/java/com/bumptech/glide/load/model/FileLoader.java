@@ -3,11 +3,13 @@ package com.bumptech.glide.load.model;
 import android.os.ParcelFileDescriptor;
 import android.support.annotation.NonNull;
 import android.util.Log;
+
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.data.DataFetcher;
 import com.bumptech.glide.signature.ObjectKey;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -33,7 +35,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
 
   @Override
   public LoadData<Data> buildLoadData(@NonNull File model, int width, int height,
-      @NonNull Options options) {
+                                      @NonNull Options options) {
     return new LoadData<>(new ObjectKey(model), new FileFetcher<>(model, fileOpener));
   }
 

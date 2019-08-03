@@ -3,6 +3,7 @@ package com.bumptech.glide.load.data.mediastore;
 import android.content.ContentResolver;
 import android.net.Uri;
 import android.provider.MediaStore;
+
 import com.bumptech.glide.request.target.Target;
 
 /**

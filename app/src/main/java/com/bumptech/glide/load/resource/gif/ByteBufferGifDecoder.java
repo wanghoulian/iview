@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.util.Log;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.gifdecoder.GifDecoder;
 import com.bumptech.glide.gifdecoder.GifHeader;
@@ -23,14 +24,15 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.UnitTransformation;
 import com.bumptech.glide.util.LogTime;
 import com.bumptech.glide.util.Util;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Queue;
 
 /**
- * An {@link ResourceDecoder} that decodes {@link
- * GifDrawable} from {@link java.io.InputStream} data.
+ * An {@link com.bumptech.glide.load.ResourceDecoder} that decodes {@link
+ * com.bumptech.glide.load.resource.gif.GifDrawable} from {@link java.io.InputStream} data.
  */
 public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDrawable> {
   private static final String TAG = "BufferGifDecoder";
@@ -79,7 +81,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
 
   @Override
   public GifDrawableResource decode(@NonNull ByteBuffer source, int width, int height,
-      @NonNull Options options) {
+                                    @NonNull Options options) {
     final GifHeaderParser parser = parserPool.obtain(source);
     try {
       return decode(source, width, height, parser, options);

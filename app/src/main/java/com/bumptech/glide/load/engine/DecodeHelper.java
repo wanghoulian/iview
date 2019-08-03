@@ -14,6 +14,7 @@ import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.load.model.ModelLoader.LoadData;
 import com.bumptech.glide.load.resource.UnitTransformation;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ final class DecodeHelper<Transcode> {
   private int width;
   private int height;
   private Class<?> resourceClass;
-  private DiskCacheProvider diskCacheProvider;
+  private DecodeJob.DiskCacheProvider diskCacheProvider;
   private Options options;
   private Map<Class<?>, Transformation<?>> transformations;
   private Class<Transcode> transcodeClass;

@@ -3,8 +3,10 @@ package com.bumptech.glide.load.data;
 import android.content.res.AssetManager;
 import android.support.annotation.NonNull;
 import android.util.Log;
+
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
+
 import java.io.IOException;
 
 /**

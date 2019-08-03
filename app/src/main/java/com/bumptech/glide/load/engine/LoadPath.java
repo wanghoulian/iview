@@ -2,9 +2,11 @@ package com.bumptech.glide.load.engine;
 
 import android.support.annotation.NonNull;
 import android.support.v4.util.Pools.Pool;
+
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.data.DataRewinder;
 import com.bumptech.glide.util.Preconditions;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,11 +14,11 @@ import java.util.List;
 /**
  * For a given {@link com.bumptech.glide.load.data.DataFetcher} for a given data class, attempts to
  * fetch the data and then run it through one or more
- * {@link DecodePath}s.
+ * {@link com.bumptech.glide.load.engine.DecodePath}s.
  *
  * @param <Data>         The type of data that will be fetched.
  * @param <ResourceType> The type of intermediate resource that will be decoded within one of the
- *                       {@link DecodePath}s.
+ *                       {@link com.bumptech.glide.load.engine.DecodePath}s.
  * @param <Transcode>    The type of resource that will be returned as the result if the load and
  *                       one of the decode paths succeeds.
  */
@@ -27,8 +29,8 @@ public class LoadPath<Data, ResourceType, Transcode> {
   private final String failureMessage;
 
   public LoadPath(Class<Data> dataClass, Class<ResourceType> resourceClass,
-      Class<Transcode> transcodeClass,
-      List<DecodePath<Data, ResourceType, Transcode>> decodePaths, Pool<List<Throwable>> listPool) {
+                  Class<Transcode> transcodeClass,
+                  List<DecodePath<Data, ResourceType, Transcode>> decodePaths, Pool<List<Throwable>> listPool) {
     this.dataClass = dataClass;
     this.listPool = listPool;
     this.decodePaths = Preconditions.checkNotEmpty(decodePaths);
@@ -37,7 +39,7 @@ public class LoadPath<Data, ResourceType, Transcode> {
   }
 
   public Resource<Transcode> load(DataRewinder<Data> rewinder, @NonNull Options options, int width,
-      int height, DecodePath.DecodeCallback<ResourceType> decodeCallback) throws GlideException {
+                                  int height, DecodePath.DecodeCallback<ResourceType> decodeCallback) throws GlideException {
     List<Throwable> throwables = Preconditions.checkNotNull(listPool.acquire());
     try {
       return loadWithExceptionList(rewinder, options, width, height, decodeCallback, throwables);

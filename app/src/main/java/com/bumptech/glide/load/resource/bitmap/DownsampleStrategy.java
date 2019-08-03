@@ -86,7 +86,7 @@ public abstract class DownsampleStrategy {
   public static final DownsampleStrategy DEFAULT = CENTER_OUTSIDE;
 
   /**
-   * Indicates the {@link DownsampleStrategy} option that
+   * Indicates the {@link com.bumptech.glide.load.resource.bitmap.DownsampleStrategy} option that
    * will be used to calculate the sample size to use to downsample an image given the original
    * and target dimensions of the image.
    */
@@ -144,7 +144,7 @@ public abstract class DownsampleStrategy {
 
     @Override
     public SampleSizeRounding getSampleSizeRounding(int sourceWidth, int sourceHeight,
-        int requestedWidth, int requestedHeight) {
+                                                    int requestedWidth, int requestedHeight) {
       return SampleSizeRounding.QUALITY;
     }
   }
@@ -164,7 +164,7 @@ public abstract class DownsampleStrategy {
 
     @Override
     public SampleSizeRounding getSampleSizeRounding(int sourceWidth, int sourceHeight,
-        int requestedWidth, int requestedHeight) {
+                                                    int requestedWidth, int requestedHeight) {
       return SampleSizeRounding.QUALITY;
     }
   }
@@ -183,7 +183,7 @@ public abstract class DownsampleStrategy {
 
     @Override
     public SampleSizeRounding getSampleSizeRounding(int sourceWidth, int sourceHeight,
-        int requestedWidth, int requestedHeight) {
+                                                    int requestedWidth, int requestedHeight) {
       return SampleSizeRounding.QUALITY;
     }
   }
@@ -206,7 +206,7 @@ public abstract class DownsampleStrategy {
 
     @Override
     public SampleSizeRounding getSampleSizeRounding(int sourceWidth, int sourceHeight,
-        int requestedWidth, int requestedHeight) {
+                                                    int requestedWidth, int requestedHeight) {
       return SampleSizeRounding.MEMORY;
     }
   }
@@ -224,7 +224,7 @@ public abstract class DownsampleStrategy {
 
     @Override
     public SampleSizeRounding getSampleSizeRounding(int sourceWidth, int sourceHeight,
-        int requestedWidth, int requestedHeight) {
+                                                    int requestedWidth, int requestedHeight) {
       return SampleSizeRounding.QUALITY;
     }
   }
@@ -244,7 +244,7 @@ public abstract class DownsampleStrategy {
 
     @Override
     public SampleSizeRounding getSampleSizeRounding(int sourceWidth, int sourceHeight,
-        int requestedWidth, int requestedHeight) {
+                                                    int requestedWidth, int requestedHeight) {
       return SampleSizeRounding.QUALITY;
     }
   }

@@ -1,9 +1,5 @@
 package com.bumptech.glide;
 
-import static com.bumptech.glide.request.RequestOptions.decodeTypeOf;
-import static com.bumptech.glide.request.RequestOptions.diskCacheStrategyOf;
-import static com.bumptech.glide.request.RequestOptions.skipMemoryCacheOf;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -16,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RawRes;
 import android.view.View;
+
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.gif.GifDrawable;
 import com.bumptech.glide.manager.ConnectivityMonitor;
@@ -32,8 +29,13 @@ import com.bumptech.glide.request.target.ViewTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Synthetic;
 import com.bumptech.glide.util.Util;
+
 import java.io.File;
 import java.net.URL;
+
+import static com.bumptech.glide.request.RequestOptions.decodeTypeOf;
+import static com.bumptech.glide.request.RequestOptions.diskCacheStrategyOf;
+import static com.bumptech.glide.request.RequestOptions.skipMemoryCacheOf;
 
 /**
  * A class for managing and starting requests for Glide. Can use activity, fragment and connectivity
@@ -48,7 +50,7 @@ import java.net.URL;
  * @see Glide#with(Context)
  */
 public class RequestManager implements LifecycleListener,
-    ModelTypes<RequestBuilder<Drawable>> {
+        ModelTypes<RequestBuilder<Drawable>> {
   private static final RequestOptions DECODE_TYPE_BITMAP = decodeTypeOf(Bitmap.class).lock();
   private static final RequestOptions DECODE_TYPE_GIF = decodeTypeOf(GifDrawable.class).lock();
   private static final RequestOptions DOWNLOAD_ONLY_OPTIONS =
@@ -73,8 +75,8 @@ public class RequestManager implements LifecycleListener,
   private RequestOptions requestOptions;
 
   public RequestManager(
-      @NonNull Glide glide, @NonNull Lifecycle lifecycle,
-      @NonNull RequestManagerTreeNode treeNode, @NonNull Context context) {
+          @NonNull Glide glide, @NonNull Lifecycle lifecycle,
+          @NonNull RequestManagerTreeNode treeNode, @NonNull Context context) {
     this(
         glide,
         lifecycle,
@@ -324,7 +326,7 @@ public class RequestManager implements LifecycleListener,
 
   /**
    * Attempts to always load the resource as a
-   * {@link GifDrawable}.
+   * {@link com.bumptech.glide.load.resource.gif.GifDrawable}.
    *
    * <p> If the underlying data is not a GIF, this will fail. As a result, this should only be used
    * if the model represents an animated GIF and the caller wants to interact with the GifDrawable
@@ -333,7 +335,7 @@ public class RequestManager implements LifecycleListener,
    * Drawable}, animated or not, automatically. </p>
    *
    * @return A new request builder for loading a
-   * {@link GifDrawable}.
+   * {@link com.bumptech.glide.load.resource.gif.GifDrawable}.
    */
   @NonNull
   @CheckResult
@@ -474,8 +476,8 @@ public class RequestManager implements LifecycleListener,
    * cached source data.
    *
    * <p>This method is designed to work for remote data that is or will be cached using {@link
-   * DiskCacheStrategy#DATA}. As a result, specifying a
-   * {@link DiskCacheStrategy} on this request is generally not
+   * com.bumptech.glide.load.engine.DiskCacheStrategy#DATA}. As a result, specifying a
+   * {@link com.bumptech.glide.load.engine.DiskCacheStrategy} on this request is generally not
    * recommended.
    *
    * @return A new request builder for downloading content to cache and returning the cache File.

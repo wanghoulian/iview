@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
@@ -21,16 +20,18 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.util.ArrayMap;
 import android.util.Log;
 import android.view.View;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * A collection of static methods for creating new {@link RequestManager}s or
+ * A collection of static methods for creating new {@link com.bumptech.glide.RequestManager}s or
  * retrieving existing ones from activities and fragment.
  */
 public class RequestManagerRetriever implements Handler.Callback {
@@ -376,9 +377,9 @@ public class RequestManagerRetriever implements Handler.Callback {
   @Deprecated
   @NonNull
   private RequestManager fragmentGet(@NonNull Context context,
-      @NonNull android.app.FragmentManager fm,
-      @Nullable android.app.Fragment parentHint,
-      boolean isParentVisible) {
+                                     @NonNull android.app.FragmentManager fm,
+                                     @Nullable android.app.Fragment parentHint,
+                                     boolean isParentVisible) {
     RequestManagerFragment current = getRequestManagerFragment(fm, parentHint, isParentVisible);
     RequestManager requestManager = current.getRequestManager();
     if (requestManager == null) {
@@ -406,7 +407,7 @@ public class RequestManagerRetriever implements Handler.Callback {
 
   @NonNull
   private SupportRequestManagerFragment getSupportRequestManagerFragment(
-      @NonNull final FragmentManager fm, @Nullable Fragment parentHint, boolean isParentVisible) {
+          @NonNull final FragmentManager fm, @Nullable Fragment parentHint, boolean isParentVisible) {
     SupportRequestManagerFragment current =
         (SupportRequestManagerFragment) fm.findFragmentByTag(FRAGMENT_TAG);
     if (current == null) {
@@ -487,7 +488,7 @@ public class RequestManagerRetriever implements Handler.Callback {
     @NonNull
     @Override
     public RequestManager build(@NonNull Glide glide, @NonNull Lifecycle lifecycle,
-        @NonNull RequestManagerTreeNode requestManagerTreeNode, @NonNull Context context) {
+                                @NonNull RequestManagerTreeNode requestManagerTreeNode, @NonNull Context context) {
       return new RequestManager(glide, lifecycle, requestManagerTreeNode, context);
     }
   };

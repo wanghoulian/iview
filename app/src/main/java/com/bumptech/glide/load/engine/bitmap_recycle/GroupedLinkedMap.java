@@ -1,7 +1,9 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
 
 import android.support.annotation.Nullable;
+
 import com.bumptech.glide.util.Synthetic;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

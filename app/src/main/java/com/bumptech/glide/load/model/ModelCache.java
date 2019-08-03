@@ -3,8 +3,10 @@ package com.bumptech.glide.load.model;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+
 import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Util;
+
 import java.util.Queue;
 
 /**

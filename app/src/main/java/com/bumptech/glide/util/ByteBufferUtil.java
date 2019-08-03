@@ -2,6 +2,7 @@ package com.bumptech.glide.util;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -162,9 +163,12 @@ public final class ByteBufferUtil {
   }
 
   static final class SafeArray {
-    @Synthetic final int offset;
-    @Synthetic final int limit;
-    @Synthetic final byte[] data;
+    @Synthetic
+    final int offset;
+    @Synthetic
+    final int limit;
+    @Synthetic
+    final byte[] data;
 
     // PMD.ArrayIsStoredDirectly Copying would be prohibitively expensive and/or lead to OOMs.
     @SuppressWarnings("PMD.ArrayIsStoredDirectly")

@@ -1,16 +1,18 @@
 package com.bumptech.glide.load.engine;
 
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.data.DataFetcher;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.load.model.ModelLoader.LoadData;
+
 import java.io.File;
 import java.util.List;
 
 /**
- * Generates {@link DataFetcher DataFetchers} from cache files
+ * Generates {@link com.bumptech.glide.load.data.DataFetcher DataFetchers} from cache files
  * containing original unmodified source data.
  */
 class DataCacheGenerator implements DataFetcherGenerator,

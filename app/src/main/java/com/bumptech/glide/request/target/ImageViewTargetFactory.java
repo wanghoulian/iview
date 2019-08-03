@@ -7,7 +7,7 @@ import android.widget.ImageView;
 
 /**
  * A factory responsible for producing the correct type of
- * {@link Target} for a given {@link android.view.View} subclass.
+ * {@link com.bumptech.glide.request.target.Target} for a given {@link android.view.View} subclass.
  */
 public class ImageViewTargetFactory {
   @NonNull

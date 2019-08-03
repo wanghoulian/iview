@@ -4,8 +4,10 @@ import android.content.ContentResolver;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.util.Log;
+
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 

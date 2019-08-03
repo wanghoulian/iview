@@ -11,12 +11,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.util.Log;
+
 import com.bumptech.glide.load.Option;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.request.target.Target;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
@@ -115,7 +117,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
   }
 
   VideoDecoder(
-      BitmapPool bitmapPool, MediaMetadataRetrieverInitializer<T> initializer) {
+          BitmapPool bitmapPool, MediaMetadataRetrieverInitializer<T> initializer) {
     this(bitmapPool, initializer, DEFAULT_FACTORY);
   }
 

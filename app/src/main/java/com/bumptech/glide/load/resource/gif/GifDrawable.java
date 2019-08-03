@@ -1,7 +1,5 @@
 package com.bumptech.glide.load.resource.gif;
 
-import static com.bumptech.glide.gifdecoder.GifDecoder.TOTAL_ITERATION_COUNT_FOREVER;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -15,12 +13,16 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 import android.view.Gravity;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.gifdecoder.GifDecoder;
 import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Preconditions;
+
 import java.nio.ByteBuffer;
+
+import static com.bumptech.glide.gifdecoder.GifDecoder.TOTAL_ITERATION_COUNT_FOREVER;
 
 /**
  * An animated {@link Drawable} that plays the frames of an animated GIF.
@@ -81,7 +83,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
    *
    * @param context             A context.
    * @param bitmapPool          Ignored, see deprecation note.
-   * @param frameTransformation An {@link Transformation} that can be
+   * @param frameTransformation An {@link com.bumptech.glide.load.Transformation} that can be
    *                            applied to each frame.
    * @param targetFrameWidth    The desired width of the frames displayed by this drawable (the
    *                            width of the view or
@@ -93,7 +95,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
    *                            this drawable is being loaded into).
    * @param gifDecoder          The decoder to use to decode GIF data.
    * @param firstFrame          The decoded and transformed first frame of this GIF.
-   * @see #setFrameTransformation(Transformation, Bitmap)
+   * @see #setFrameTransformation(com.bumptech.glide.load.Transformation, Bitmap)
    *
    * @deprecated Use {@link #GifDrawable(Context, GifDecoder, Transformation, int, int, Bitmap)}
    */
@@ -114,7 +116,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
    * Constructor for GifDrawable.
    *
    * @param context             A context.
-   * @param frameTransformation An {@link Transformation} that can be
+   * @param frameTransformation An {@link com.bumptech.glide.load.Transformation} that can be
    *                            applied to each frame.
    * @param targetFrameWidth    The desired width of the frames displayed by this drawable (the
    *                            width of the view or
@@ -126,7 +128,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
    *                            this drawable is being loaded into).
    * @param gifDecoder          The decoder to use to decode GIF data.
    * @param firstFrame          The decoded and transformed first frame of this GIF.
-   * @see #setFrameTransformation(Transformation, Bitmap)
+   * @see #setFrameTransformation(com.bumptech.glide.load.Transformation, Bitmap)
    */
   public GifDrawable(
       Context context,

@@ -11,7 +11,7 @@ import com.bumptech.glide.load.ResourceDecoder;
 public final class GifOptions {
 
   /**
-   * Indicates the {@link DecodeFormat} that will be used in conjunction
+   * Indicates the {@link com.bumptech.glide.load.DecodeFormat} that will be used in conjunction
    * with the particular GIF to determine the {@link android.graphics.Bitmap.Config} to use when
    * decoding frames of GIFs.
    */
@@ -19,7 +19,7 @@ public final class GifOptions {
       "com.bumptech.glide.load.resource.gif.GifOptions.DecodeFormat", DecodeFormat.DEFAULT);
 
   /**
-   * If set to {@code true}, disables the GIF {@link ResourceDecoder}s
+   * If set to {@code true}, disables the GIF {@link com.bumptech.glide.load.ResourceDecoder}s
    * ({@link ResourceDecoder#handles(Object, Options)} will return {@code false}). Defaults to
    * {@code false}.
    */

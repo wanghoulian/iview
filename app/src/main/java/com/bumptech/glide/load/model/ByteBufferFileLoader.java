@@ -2,6 +2,7 @@ package com.bumptech.glide.load.model;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
+
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.Options;
@@ -9,6 +10,7 @@ import com.bumptech.glide.load.data.DataFetcher;
 import com.bumptech.glide.signature.ObjectKey;
 import com.bumptech.glide.util.ByteBufferUtil;
 import com.bumptech.glide.util.Synthetic;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -31,7 +33,7 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
   }
 
   /**
-   * Factory for {@link ByteBufferFileLoader}.
+   * Factory for {@link com.bumptech.glide.load.model.ByteBufferFileLoader}.
    */
   public static class Factory implements ModelLoaderFactory<File, ByteBuffer> {
 

@@ -2,17 +2,19 @@ package com.bumptech.glide.provider;
 
 import android.support.annotation.Nullable;
 import android.support.v4.util.ArrayMap;
+
 import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.DecodePath;
 import com.bumptech.glide.load.engine.LoadPath;
 import com.bumptech.glide.load.resource.transcode.UnitTranscoder;
 import com.bumptech.glide.util.MultiClassKey;
+
 import java.util.Collections;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Maintains a cache of data, resource, and transcode classes to available
- * {@link LoadPath}s capable of decoding with the requested types.
+ * {@link com.bumptech.glide.load.engine.LoadPath}s capable of decoding with the requested types.
  */
 public class LoadPathCache {
   private static final LoadPath<?, ?, ?> NO_PATHS_SIGNAL =
@@ -73,7 +75,7 @@ public class LoadPathCache {
   }
 
   private MultiClassKey getKey(Class<?> dataClass, Class<?> resourceClass,
-      Class<?> transcodeClass) {
+                               Class<?> transcodeClass) {
      MultiClassKey key = keyRef.getAndSet(null);
     if (key == null) {
       key = new MultiClassKey();

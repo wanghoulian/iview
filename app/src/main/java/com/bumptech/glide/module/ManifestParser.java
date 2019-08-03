@@ -4,12 +4,13 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.util.Log;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Parses {@link GlideModule} references out of the AndroidManifest file.
+ * Parses {@link com.bumptech.glide.module.GlideModule} references out of the AndroidManifest file.
  */
 // Used only in javadoc.
 @SuppressWarnings("deprecation")

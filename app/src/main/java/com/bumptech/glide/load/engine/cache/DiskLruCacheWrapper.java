@@ -5,9 +5,11 @@
 package com.bumptech.glide.load.engine.cache;
 
 import android.util.Log;
+
 import com.bumptech.glide.disklrucache.DiskLruCache;
 import com.bumptech.glide.disklrucache.DiskLruCache.Value;
 import com.bumptech.glide.load.Key;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -94,7 +96,7 @@ public class DiskLruCacheWrapper implements DiskCache {
       // It is possible that the there will be a put in between these two gets. If so that shouldn't
       // be a problem because we will always put the same value at the same key so our input streams
       // will still represent the same data.
-      final Value value = getDiskCache().get(safeKey);
+      final DiskLruCache.Value value = getDiskCache().get(safeKey);
       if (value != null) {
         result = value.getFile(0);
       }

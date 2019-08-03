@@ -2,6 +2,7 @@ package com.bumptech.glide.load.engine.cache;
 
 import android.support.annotation.NonNull;
 import android.support.v4.util.Pools;
+
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Preconditions;
@@ -9,12 +10,13 @@ import com.bumptech.glide.util.Synthetic;
 import com.bumptech.glide.util.Util;
 import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
  * A class that generates and caches safe and unique string file names from {@link
- * Key}s.
+ * com.bumptech.glide.load.Key}s.
  */
 // Public API.
 @SuppressWarnings("WeakerAccess")

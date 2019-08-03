@@ -1,13 +1,15 @@
 package com.bumptech.glide.manager;
 
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.util.Util;
+
 import java.util.Collections;
 import java.util.Set;
 import java.util.WeakHashMap;
 
 /**
- * A {@link Lifecycle} implementation for tracking and notifying
+ * A {@link com.bumptech.glide.manager.Lifecycle} implementation for tracking and notifying
  * listeners of {@link android.app.Fragment} and {@link android.app.Activity} lifecycle events.
  */
 class ActivityFragmentLifecycle implements Lifecycle {
@@ -23,7 +25,7 @@ class ActivityFragmentLifecycle implements Lifecycle {
    * method. If the activity or fragment is stopped, {@link LifecycleListener#onStop()}} will be
    * called, and same for onStart and onDestroy. </p>
    *
-   * <p> Note - {@link LifecycleListener}s that are added more than once
+   * <p> Note - {@link com.bumptech.glide.manager.LifecycleListener}s that are added more than once
    * will have their lifecycle methods called more than once. It is the caller's responsibility to
    * avoid adding listeners multiple times. </p>
    */

@@ -14,7 +14,7 @@ public class ViewPropertyTransition<R> implements Transition<R> {
   private final Animator animator;
 
   /**
-   * Constructor for a view property animation that takes an {@link Animator}
+   * Constructor for a view property animation that takes an {@link ViewPropertyTransition.Animator}
    * interface that can apply a transition to a view.
    *
    * @param animator The animator to use.
@@ -26,7 +26,7 @@ public class ViewPropertyTransition<R> implements Transition<R> {
   }
 
   /**
-   * Always applies the {@link Animator} given in the constructor to the
+   * Always applies the {@link ViewPropertyTransition.Animator} given in the constructor to the
    * given view and returns {@code false} because the animator cannot put the new resource on the
    * view.
    *

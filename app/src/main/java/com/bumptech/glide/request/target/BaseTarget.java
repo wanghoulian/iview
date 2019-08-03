@@ -2,6 +2,7 @@ package com.bumptech.glide.request.target;
 
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
+
 import com.bumptech.glide.request.Request;
 
 /**
@@ -13,8 +14,8 @@ import com.bumptech.glide.request.Request;
  * {@link com.bumptech.glide.RequestManager#clear(Target)}.</p>
  *
  * <p> For loading {@link com.bumptech.glide.load.engine.Resource}s into {@link android.view.View}s,
- * {@link ViewTarget} or
- * {@link ImageViewTarget} are preferable.</p>
+ * {@link com.bumptech.glide.request.target.ViewTarget} or
+ * {@link com.bumptech.glide.request.target.ImageViewTarget} are preferable.</p>
  *
  * @param <Z> The type of resource that will be received by this target.
  */

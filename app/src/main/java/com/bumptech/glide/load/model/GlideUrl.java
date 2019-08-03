@@ -4,8 +4,10 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.Preconditions;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.MessageDigest;
@@ -23,7 +25,7 @@ import java.util.Map;
  * URL, call {@link #toStringUrl()}. To obtain a less safe, but less expensive to calculate cache
  * key, call {@link #getCacheKey()}. </p>
  *
- * <p> This class can also optionally wrap {@link Headers} for
+ * <p> This class can also optionally wrap {@link com.bumptech.glide.load.model.Headers} for
  * convenience. </p>
  */
 public class GlideUrl implements Key {

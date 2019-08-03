@@ -1,18 +1,20 @@
 package com.bumptech.glide.load.model.stream;
 
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.MultiModelLoaderFactory;
+
 import java.io.InputStream;
 import java.net.URL;
 
 /**
  * A wrapper class that translates {@link URL} objects into {@link
- * GlideUrl} objects and then uses the wrapped {@link
- * ModelLoader} for {@link GlideUrl}s to
+ * com.bumptech.glide.load.model.GlideUrl} objects and then uses the wrapped {@link
+ * com.bumptech.glide.load.model.ModelLoader} for {@link com.bumptech.glide.load.model.GlideUrl}s to
  * load the data.
  */
 public class UrlLoader implements ModelLoader<URL, InputStream> {
@@ -26,7 +28,7 @@ public class UrlLoader implements ModelLoader<URL, InputStream> {
 
   @Override
   public LoadData<InputStream> buildLoadData(@NonNull URL model, int width, int height,
-      @NonNull Options options) {
+                                             @NonNull Options options) {
     return glideUrlLoader.buildLoadData(new GlideUrl(model), width, height, options);
   }
 

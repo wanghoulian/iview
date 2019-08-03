@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.util.ArrayMap;
 import android.util.Log;
+
 import com.bumptech.glide.load.engine.Engine;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
@@ -24,6 +25,7 @@ import com.bumptech.glide.manager.RequestManagerRetriever;
 import com.bumptech.glide.manager.RequestManagerRetriever.RequestManagerFactory;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+
 import java.util.Map;
 
 /**
@@ -48,7 +50,7 @@ public final class GlideBuilder {
   private boolean isActiveResourceRetentionAllowed;
 
   /**
-   * Sets the {@link BitmapPool} implementation to use
+   * Sets the {@link com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool} implementation to use
    * to store and retrieve reused {@link Bitmap}s.
    *
    * @param bitmapPool The pool to use.
@@ -74,7 +76,7 @@ public final class GlideBuilder {
   }
 
   /**
-   * Sets the {@link MemoryCache} implementation to store
+   * Sets the {@link com.bumptech.glide.load.engine.cache.MemoryCache} implementation to store
    * {@link com.bumptech.glide.load.engine.Resource}s that are not currently in use.
    *
    * @param memoryCache The cache to use.
@@ -89,8 +91,8 @@ public final class GlideBuilder {
   }
 
   /**
-   * Sets the {@link DiskCache.Factory} implementation to use
-   * to construct the {@link DiskCache} to use to store {@link
+   * Sets the {@link com.bumptech.glide.load.engine.cache.DiskCache.Factory} implementation to use
+   * to construct the {@link com.bumptech.glide.load.engine.cache.DiskCache} to use to store {@link
    * com.bumptech.glide.load.engine.Resource} data on disk.
    *
    * @param diskCacheFactory The disk cache factory to use.
@@ -268,9 +270,9 @@ public final class GlideBuilder {
   }
 
   /**
-   * Sets the {@link ConnectivityMonitorFactory}
-   * to use to notify {@link RequestManager} of connectivity events.
-   * If not set {@link DefaultConnectivityMonitorFactory} would be used.
+   * Sets the {@link com.bumptech.glide.manager.ConnectivityMonitorFactory}
+   * to use to notify {@link com.bumptech.glide.RequestManager} of connectivity events.
+   * If not set {@link com.bumptech.glide.manager.DefaultConnectivityMonitorFactory} would be used.
    *
    * @param factory The factory to use
    * @return This builder.
@@ -322,18 +324,18 @@ public final class GlideBuilder {
 
   /**
    * If set to {@code true}, allows Glide to re-capture resources that are loaded into
-   * {@link Target}s which are subsequently de-referenced and
+   * {@link com.bumptech.glide.request.target.Target}s which are subsequently de-referenced and
    * garbage collected without being cleared.
    *
    * <p>Defaults to {@code false}.
    *
    * <p>Glide's resource re-use system is permissive, which means that's acceptable for callers to
-   * load resources into {@link Target}s and then never clear the
-   * {@link Target}. To do so, Glide uses
+   * load resources into {@link com.bumptech.glide.request.target.Target}s and then never clear the
+   * {@link com.bumptech.glide.request.target.Target}. To do so, Glide uses
    * {@link java.lang.ref.WeakReference}s to track resources that belong to
-   * {@link Target}s that haven't yet been cleared. Setting
+   * {@link com.bumptech.glide.request.target.Target}s that haven't yet been cleared. Setting
    * this method to {@code true} allows Glide to also maintain a hard reference to the underlying
-   * resource so that if the {@link Target} is garbage collected,
+   * resource so that if the {@link com.bumptech.glide.request.target.Target} is garbage collected,
    * Glide can return the underlying resource to it's memory cache so that subsequent requests will
    * not unexpectedly re-load the resource from disk or source. As a side affect, it will take
    * the system slightly longer to garbage collect the underlying resource because the weak
@@ -343,19 +345,19 @@ public final class GlideBuilder {
    *
    * <p>Leaving this method at the default {@code false} value will allow the platform to garbage
    * collect resources more quickly, but will lead to unexpected memory cache misses if callers load
-   * resources into {@link Target}s but never clear them.
+   * resources into {@link com.bumptech.glide.request.target.Target}s but never clear them.
    *
    * <p>If you set this method to {@code true} you <em>must not</em> call
    * {@link Bitmap#recycle()} or mutate any Bitmaps returned by Glide. If this method is set to
    * {@code false}, recycling or mutating Bitmaps is inefficient but safe as long as you do not
-   * clear the corresponding {@link Target} used to load the
+   * clear the corresponding {@link com.bumptech.glide.request.target.Target} used to load the
    * {@link Bitmap}. However, if you set this method to {@code true} and recycle or mutate any
    * returned {@link Bitmap}s or other mutable resources, Glide may recover those resources and
    * attempt to use them later on, resulting in crashes, graphical corruption or undefined behavior.
    *
    * <p>Regardless of what value this method is set to, it's always good practice to clear
-   * {@link Target}s when you're done with the corresponding
-   * resource. Clearing {@link Target}s allows Glide to maximize
+   * {@link com.bumptech.glide.request.target.Target}s when you're done with the corresponding
+   * resource. Clearing {@link com.bumptech.glide.request.target.Target}s allows Glide to maximize
    * resource re-use, minimize memory overhead and minimize unexpected behavior resulting from
    * edge cases. If you use {@link RequestManager#clear(Target)}, calling {@link Bitmap#recycle()}
    * or mutating {@link Bitmap}s is not only unsafe, it's also totally unnecessary and should be

@@ -3,12 +3,14 @@ package com.bumptech.glide.load.model.stream;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.Headers;
 import com.bumptech.glide.load.model.ModelCache;
 import com.bumptech.glide.load.model.ModelLoader;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -38,7 +40,7 @@ public abstract class BaseGlideUrlLoader<Model> implements ModelLoader<Model, In
   @Override
   @Nullable
   public LoadData<InputStream> buildLoadData(@NonNull Model model, int width, int height,
-      @NonNull Options options) {
+                                             @NonNull Options options) {
     GlideUrl result = null;
     if (modelCache != null) {
       result = modelCache.get(model, width, height);

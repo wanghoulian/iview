@@ -6,7 +6,9 @@ import android.os.ParcelFileDescriptor;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
 import com.bumptech.glide.load.Options;
+
 import java.io.File;
 import java.io.InputStream;
 
@@ -27,7 +29,7 @@ public class StringLoader<Data> implements ModelLoader<String, Data> {
 
   @Override
   public LoadData<Data> buildLoadData(@NonNull String model, int width, int height,
-      @NonNull Options options) {
+                                      @NonNull Options options) {
     Uri uri = parseUri(model);
     if (uri == null || !uriLoader.handles(uri)) {
       return null;

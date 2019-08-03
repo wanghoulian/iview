@@ -5,8 +5,10 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.VisibleForTesting;
+
 import com.bumptech.glide.util.Synthetic;
 import com.bumptech.glide.util.Util;
+
 import java.util.NavigableMap;
 
 /**
@@ -102,7 +104,8 @@ final class SizeStrategy implements LruPoolStrategy {
     return getBitmapString(size);
   }
 
-  @Synthetic static String getBitmapString(int size) {
+  @Synthetic
+  static String getBitmapString(int size) {
     return "[" + size + "]";
   }
 
@@ -125,7 +128,8 @@ final class SizeStrategy implements LruPoolStrategy {
   @VisibleForTesting
   static final class Key implements Poolable {
     private final KeyPool pool;
-    @Synthetic int size;
+    @Synthetic
+    int size;
 
     Key(KeyPool pool) {
       this.pool = pool;

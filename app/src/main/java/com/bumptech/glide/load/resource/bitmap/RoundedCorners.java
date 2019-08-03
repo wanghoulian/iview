@@ -2,9 +2,11 @@ package com.bumptech.glide.load.resource.bitmap;
 
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
+
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 
@@ -28,7 +30,7 @@ public final class RoundedCorners extends BitmapTransformation {
 
   @Override
   protected Bitmap transform(
-      @NonNull BitmapPool pool, @NonNull Bitmap toTransform, int outWidth, int outHeight) {
+          @NonNull BitmapPool pool, @NonNull Bitmap toTransform, int outWidth, int outHeight) {
     return TransformationUtils.roundedCorners(pool, toTransform, roundingRadius);
   }
 

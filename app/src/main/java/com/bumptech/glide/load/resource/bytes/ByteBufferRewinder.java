@@ -1,7 +1,9 @@
 package com.bumptech.glide.load.resource.bytes;
 
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.load.data.DataRewinder;
+
 import java.nio.ByteBuffer;
 
 /**
@@ -29,7 +31,7 @@ public class ByteBufferRewinder implements DataRewinder<ByteBuffer> {
   }
 
   /**
-   * Factory for {@link ByteBufferRewinder}.
+   * Factory for {@link com.bumptech.glide.load.resource.bytes.ByteBufferRewinder}.
    */
   public static class Factory implements DataRewinder.Factory<ByteBuffer> {
 

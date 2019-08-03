@@ -48,8 +48,8 @@ public interface Transition<R> {
    * view.
    *
    * @param current The new resource that will be displayed in the view.
-   * @param adapter The {@link ViewAdapter} wrapping a view that can at least return an
-   *                {@link View} from {@link ViewAdapter#getView()}.
+   * @param adapter The {@link Transition.ViewAdapter} wrapping a view that can at least return an
+   *                {@link View} from {@link Transition.ViewAdapter#getView()}.
    * @return True if in the process of running the transition, the new resource was put on the view,
    * false if the caller needs to manually put the current resource on the view.
    */

@@ -5,7 +5,9 @@ import android.os.StrictMode.ThreadPolicy;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 import android.util.Log;
+
 import com.bumptech.glide.util.Synthetic;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -69,7 +71,7 @@ public final class GlideExecutor implements ExecutorService {
    * Returns a new fixed thread pool with the default thread count returned from
    * {@link #calculateBestThreadCount()}, the {@link #DEFAULT_DISK_CACHE_EXECUTOR_NAME} thread name
    * prefix, and the
-   * {@link UncaughtThrowableStrategy#DEFAULT}
+   * {@link com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy#DEFAULT}
    * uncaught throwable strategy.
    *
    * <p>Disk cache executors do not allow network operations on their threads.
@@ -85,12 +87,12 @@ public final class GlideExecutor implements ExecutorService {
    * Returns a new fixed thread pool with the default thread count returned from
    * {@link #calculateBestThreadCount()}, the {@link #DEFAULT_DISK_CACHE_EXECUTOR_NAME} thread name
    * prefix, and a custom
-   * {@link UncaughtThrowableStrategy}
+   * {@link com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy}
    * uncaught throwable strategy.
    *
    * <p>Disk cache executors do not allow network operations on their threads.
    * @param uncaughtThrowableStrategy The {@link
-   * UncaughtThrowableStrategy} to use to
+   * com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy} to use to
    *                                  handle uncaught exceptions.
    */
   // Public API.
@@ -105,14 +107,14 @@ public final class GlideExecutor implements ExecutorService {
 
   /**
    * Returns a new fixed thread pool with the given thread count, thread name prefix,
-   * and {@link UncaughtThrowableStrategy}.
+   * and {@link com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy}.
    *
    * <p>Disk cache executors do not allow network operations on their threads.
    *
    * @param threadCount The number of threads.
    * @param name The prefix for each thread name.
    * @param uncaughtThrowableStrategy The {@link
-   * UncaughtThrowableStrategy} to use to
+   * com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy} to use to
    *                                  handle uncaught exceptions.
    */
   // Public API.
@@ -133,7 +135,7 @@ public final class GlideExecutor implements ExecutorService {
    * Returns a new fixed thread pool with the default thread count returned from
    * {@link #calculateBestThreadCount()}, the {@link #DEFAULT_SOURCE_EXECUTOR_NAME} thread name
    * prefix, and the
-   * {@link UncaughtThrowableStrategy#DEFAULT}
+   * {@link com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy#DEFAULT}
    * uncaught throwable strategy.
    *
    * <p>Source executors allow network operations on their threads.
@@ -149,13 +151,13 @@ public final class GlideExecutor implements ExecutorService {
    * Returns a new fixed thread pool with the default thread count returned from
    * {@link #calculateBestThreadCount()}, the {@link #DEFAULT_SOURCE_EXECUTOR_NAME} thread name
    * prefix, and a custom
-   * {@link UncaughtThrowableStrategy}
+   * {@link com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy}
    * uncaught throwable strategy.
    *
    * <p>Source executors allow network operations on their threads.
    *
    * @param uncaughtThrowableStrategy The {@link
-   * UncaughtThrowableStrategy} to use to
+   * com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy} to use to
    *                                  handle uncaught exceptions.
    */
   // Public API.
@@ -170,14 +172,14 @@ public final class GlideExecutor implements ExecutorService {
 
   /**
    * Returns a new fixed thread pool with the given thread count, thread name prefix,
-   * and {@link UncaughtThrowableStrategy}.
+   * and {@link com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy}.
    *
    * <p>Source executors allow network operations on their threads.
    *
    * @param threadCount The number of threads.
    * @param name The prefix for each thread name.
    * @param uncaughtThrowableStrategy The {@link
-   * UncaughtThrowableStrategy} to use to
+   * com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy} to use to
    *                                  handle uncaught exceptions.
    */
   // Public API.
@@ -198,7 +200,7 @@ public final class GlideExecutor implements ExecutorService {
    * Returns a new unlimited thread pool with zero core thread count to make sure no threads are
    * created by default, {@link #KEEP_ALIVE_TIME_MS} keep alive
    * time, the {@link #SOURCE_UNLIMITED_EXECUTOR_NAME} thread name prefix, the
-   * {@link UncaughtThrowableStrategy#DEFAULT}
+   * {@link com.bumptech.glide.load.engine.executor.GlideExecutor.UncaughtThrowableStrategy#DEFAULT}
    * uncaught throwable strategy, and the {@link SynchronousQueue} since using default unbounded
    * blocking queue, for example, {@link PriorityBlockingQueue} effectively won't create more than
    * {@code corePoolSize} threads.

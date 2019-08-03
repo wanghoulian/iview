@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Drawable.ConstantState;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
 import com.bumptech.glide.load.engine.Initializable;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.resource.gif.GifDrawable;
@@ -21,7 +22,7 @@ import com.bumptech.glide.util.Preconditions;
  * @param <T> type of the wrapped {@link Drawable}
  */
 public abstract class DrawableResource<T extends Drawable> implements Resource<T>,
-    Initializable {
+        Initializable {
   protected final T drawable;
 
   public DrawableResource(T drawable) {

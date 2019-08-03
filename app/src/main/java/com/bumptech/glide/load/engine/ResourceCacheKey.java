@@ -1,12 +1,14 @@
 package com.bumptech.glide.load.engine;
 
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Util;
+
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 

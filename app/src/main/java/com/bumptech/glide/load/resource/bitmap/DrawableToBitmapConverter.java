@@ -7,10 +7,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.Log;
+
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPoolAdapter;
 import com.bumptech.glide.request.target.Target;
+
 import java.util.concurrent.locks.Lock;
 
 final class DrawableToBitmapConverter {
@@ -45,7 +47,7 @@ final class DrawableToBitmapConverter {
 
   @Nullable
   private static Bitmap drawToBitmap(
-      BitmapPool bitmapPool, Drawable drawable, int width, int height) {
+          BitmapPool bitmapPool, Drawable drawable, int width, int height) {
     if (width == Target.SIZE_ORIGINAL && drawable.getIntrinsicWidth() <= 0) {
       if (Log.isLoggable(TAG, Log.WARN)) {
         Log.w(TAG, "Unable to draw " + drawable + " to Bitmap with Target.SIZE_ORIGINAL because the"

@@ -3,18 +3,20 @@ package com.bumptech.glide.load.resource.gif;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapResource;
 import com.bumptech.glide.util.Preconditions;
+
 import java.security.MessageDigest;
 
 /**
- * An {@link Transformation} that wraps a transformation for a
+ * An {@link com.bumptech.glide.load.Transformation} that wraps a transformation for a
  * {@link Bitmap} and can apply it to every frame of any
- * {@link GifDrawable}.
+ * {@link com.bumptech.glide.load.resource.gif.GifDrawable}.
  */
 public class GifDrawableTransformation implements Transformation<GifDrawable> {
   private final Transformation<Bitmap> wrapped;

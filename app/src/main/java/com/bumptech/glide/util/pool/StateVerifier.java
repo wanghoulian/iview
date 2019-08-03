@@ -1,6 +1,7 @@
 package com.bumptech.glide.util.pool;
 
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.util.Synthetic;
 
 /**

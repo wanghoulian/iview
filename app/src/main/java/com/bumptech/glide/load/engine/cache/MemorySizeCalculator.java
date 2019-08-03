@@ -8,6 +8,7 @@ import android.support.annotation.VisibleForTesting;
 import android.text.format.Formatter;
 import android.util.DisplayMetrics;
 import android.util.Log;
+
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Synthetic;
 
@@ -32,7 +33,7 @@ public final class MemorySizeCalculator {
   }
 
   // Package private to avoid PMD warning.
-  MemorySizeCalculator(Builder builder) {
+  MemorySizeCalculator(MemorySizeCalculator.Builder builder) {
     this.context = builder.context;
 
     arrayPoolSize =
@@ -180,7 +181,7 @@ public final class MemorySizeCalculator {
 
     /**
      * Sets the number of device screens worth of pixels the
-     * {@link MemoryCache} should be able to hold and
+     * {@link com.bumptech.glide.load.engine.cache.MemoryCache} should be able to hold and
      * returns this Builder.
      */
     public Builder setMemoryCacheScreens(float memoryCacheScreens) {
@@ -204,7 +205,7 @@ public final class MemorySizeCalculator {
 
     /**
      * Sets the maximum percentage of the device's memory class for standard devices that can be
-     * taken up by Glide's {@link MemoryCache} and
+     * taken up by Glide's {@link com.bumptech.glide.load.engine.cache.MemoryCache} and
      * {@link com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool} put together, and returns
      * this builder.
      */
@@ -217,7 +218,7 @@ public final class MemorySizeCalculator {
 
     /**
      * Sets the maximum percentage of the device's memory class for low ram devices that can be
-     * taken up by Glide's {@link MemoryCache} and
+     * taken up by Glide's {@link com.bumptech.glide.load.engine.cache.MemoryCache} and
      * {@link com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool} put together, and returns
      * this builder.
      *

@@ -5,12 +5,13 @@ import android.support.v4.util.Pools.Pool;
 import android.support.v4.util.Pools.SimplePool;
 import android.support.v4.util.Pools.SynchronizedPool;
 import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Provides implementations of {@link Pool} never return {@code null}, log when new instances are
- * created, and that can use the {@link Poolable}
+ * created, and that can use the {@link com.bumptech.glide.util.pool.FactoryPools.Poolable}
  * interface to ensure objects aren't used while inside the pool.
  */
 public final class FactoryPools {
@@ -98,13 +99,13 @@ public final class FactoryPools {
 
   @NonNull
   private static <T extends Poolable> Pool<T> build(@NonNull Pool<T> pool,
-      @NonNull Factory<T> factory) {
+                                                    @NonNull Factory<T> factory) {
     return build(pool, factory, FactoryPools.<T>emptyResetter());
   }
 
   @NonNull
   private static <T> Pool<T> build(@NonNull Pool<T> pool, @NonNull Factory<T> factory,
-      @NonNull Resetter<T> resetter) {
+                                   @NonNull Resetter<T> resetter) {
     return new FactoryPool<>(pool, factory, resetter);
   }
 

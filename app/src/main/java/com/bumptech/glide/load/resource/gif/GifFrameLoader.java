@@ -1,8 +1,5 @@
 package com.bumptech.glide.load.resource.gif;
 
-import static com.bumptech.glide.request.RequestOptions.diskCacheStrategyOf;
-import static com.bumptech.glide.request.RequestOptions.signatureOf;
-
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Looper;
@@ -11,6 +8,7 @@ import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.RequestManager;
@@ -26,9 +24,13 @@ import com.bumptech.glide.signature.ObjectKey;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Synthetic;
 import com.bumptech.glide.util.Util;
+
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.bumptech.glide.request.RequestOptions.diskCacheStrategyOf;
+import static com.bumptech.glide.request.RequestOptions.signatureOf;
 
 class GifFrameLoader {
   private final GifDecoder gifDecoder;
@@ -48,7 +50,7 @@ class GifFrameLoader {
   private Transformation<Bitmap> transformation;
   private DelayTarget pendingTarget;
   @Nullable
-  private OnEveryFrameListener onEveryFrameListener;
+  private GifFrameLoader.OnEveryFrameListener onEveryFrameListener;
 
   public interface FrameCallback {
     void onFrameReady();
@@ -294,11 +296,11 @@ class GifFrameLoader {
     @Override
     public boolean handleMessage(Message msg) {
       if (msg.what == MSG_DELAY) {
-        DelayTarget target = (DelayTarget) msg.obj;
+        GifFrameLoader.DelayTarget target = (DelayTarget) msg.obj;
         onFrameReady(target);
         return true;
       } else if (msg.what == MSG_CLEAR) {
-        DelayTarget target = (DelayTarget) msg.obj;
+        GifFrameLoader.DelayTarget target = (DelayTarget) msg.obj;
         requestManager.clear(target);
       }
       return false;

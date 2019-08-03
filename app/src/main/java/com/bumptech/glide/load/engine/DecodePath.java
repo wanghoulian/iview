@@ -3,11 +3,13 @@ package com.bumptech.glide.load.engine;
 import android.support.annotation.NonNull;
 import android.support.v4.util.Pools.Pool;
 import android.util.Log;
+
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.data.DataRewinder;
 import com.bumptech.glide.load.resource.transcode.ResourceTranscoder;
 import com.bumptech.glide.util.Preconditions;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

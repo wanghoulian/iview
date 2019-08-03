@@ -2,6 +2,7 @@ package com.bumptech.glide.load.engine;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
+
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.Encoder;
 import com.bumptech.glide.load.Key;
@@ -9,11 +10,12 @@ import com.bumptech.glide.load.data.DataFetcher;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.load.model.ModelLoader.LoadData;
 import com.bumptech.glide.util.LogTime;
+
 import java.util.Collections;
 
 /**
- * Generates {@link DataFetcher DataFetchers} from original source data
- * using registered {@link ModelLoader ModelLoaders} and the model
+ * Generates {@link com.bumptech.glide.load.data.DataFetcher DataFetchers} from original source data
+ * using registered {@link com.bumptech.glide.load.model.ModelLoader ModelLoaders} and the model
  * provided for the load.
  *
  * <p> Depending on the disk cache strategy, source data may first be written to disk and then
@@ -30,7 +32,7 @@ class SourceGenerator implements DataFetcherGenerator,
   private int loadDataListIndex;
   private DataCacheGenerator sourceCacheGenerator;
   private Object dataToCache;
-  private volatile LoadData<?> loadData;
+  private volatile ModelLoader.LoadData<?> loadData;
   private DataCacheKey originalKey;
 
   SourceGenerator(DecodeHelper<?> helper, FetcherReadyCallback cb) {

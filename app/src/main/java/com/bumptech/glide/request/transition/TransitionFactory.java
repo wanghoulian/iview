@@ -13,7 +13,7 @@ public interface TransitionFactory<R> {
   /**
    * Returns a new {@link Transition}.
    *
-   * @param dataSource      The {@link DataSource} the resource was loaded
+   * @param dataSource      The {@link com.bumptech.glide.load.DataSource} the resource was loaded
    *                        from.
    * @param isFirstResource True if this is the first resource to be loaded into the target.
    */

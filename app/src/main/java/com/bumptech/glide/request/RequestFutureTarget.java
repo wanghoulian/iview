@@ -5,12 +5,14 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
+
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Util;
+
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -52,7 +54,7 @@ import java.util.concurrent.TimeoutException;
  * @param <R> The type of the resource that will be loaded.
  */
 public class RequestFutureTarget<R> implements FutureTarget<R>,
-    RequestListener<R>,
+        RequestListener<R>,
     Runnable {
   private static final Waiter DEFAULT_WAITER = new Waiter();
 
@@ -251,7 +253,7 @@ public class RequestFutureTarget<R> implements FutureTarget<R>,
 
   @Override
   public synchronized boolean onLoadFailed(
-      @Nullable GlideException e, Object model, Target<R> target, boolean isFirstResource) {
+          @Nullable GlideException e, Object model, Target<R> target, boolean isFirstResource) {
     loadFailed = true;
     exception = e;
     waiter.notifyAll(this);
@@ -260,7 +262,7 @@ public class RequestFutureTarget<R> implements FutureTarget<R>,
 
   @Override
   public synchronized boolean onResourceReady(
-      R resource, Object model, Target<R> target, DataSource dataSource, boolean isFirstResource) {
+          R resource, Object model, Target<R> target, DataSource dataSource, boolean isFirstResource) {
     // We might get a null result.
     resultReceived = true;
     this.resource = resource;

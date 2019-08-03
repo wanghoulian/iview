@@ -3,8 +3,10 @@ package com.bumptech.glide.load.engine.bitmap_recycle;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.util.Log;
+
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Synthetic;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NavigableMap;
@@ -239,7 +241,8 @@ public final class LruArrayPool implements ArrayPool {
 
   private static final class Key implements Poolable {
     private final KeyPool pool;
-    @Synthetic int size;
+    @Synthetic
+    int size;
     private Class<?> arrayClass;
 
     Key(KeyPool pool) {

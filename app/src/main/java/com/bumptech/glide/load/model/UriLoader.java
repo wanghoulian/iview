@@ -5,12 +5,14 @@ import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.data.AssetFileDescriptorLocalUriFetcher;
 import com.bumptech.glide.load.data.DataFetcher;
 import com.bumptech.glide.load.data.FileDescriptorLocalUriFetcher;
 import com.bumptech.glide.load.data.StreamLocalUriFetcher;
 import com.bumptech.glide.signature.ObjectKey;
+
 import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collections;
@@ -20,8 +22,8 @@ import java.util.Set;
 /**
  * A ModelLoader for {@link Uri}s that handles local {@link Uri}s
  * directly and routes remote {@link Uri}s to a wrapped
- * {@link ModelLoader} that handles
- * {@link GlideUrl}s.
+ * {@link com.bumptech.glide.load.model.ModelLoader} that handles
+ * {@link com.bumptech.glide.load.model.GlideUrl}s.
  *
  * @param <Data> The type of data that will be retrieved for {@link Uri}s.
  */
@@ -46,7 +48,7 @@ public class UriLoader<Data> implements ModelLoader<Uri, Data> {
 
   @Override
   public LoadData<Data> buildLoadData(@NonNull Uri model, int width, int height,
-      @NonNull Options options) {
+                                      @NonNull Options options) {
     return new LoadData<>(new ObjectKey(model), factory.build(model));
   }
 

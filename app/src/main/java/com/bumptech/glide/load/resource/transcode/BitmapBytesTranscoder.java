@@ -3,13 +3,15 @@ package com.bumptech.glide.load.resource.transcode;
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.resource.bytes.BytesResource;
+
 import java.io.ByteArrayOutputStream;
 
 /**
- * An {@link ResourceTranscoder} that converts {@link
+ * An {@link com.bumptech.glide.load.resource.transcode.ResourceTranscoder} that converts {@link
  * Bitmap}s into byte arrays using {@link Bitmap#compress
  * (android.graphics.Bitmap.CompressFormat,
  * int, java.io.OutputStream)}.

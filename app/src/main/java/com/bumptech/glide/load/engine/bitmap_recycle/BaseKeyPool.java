@@ -1,6 +1,7 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
 
 import com.bumptech.glide.util.Util;
+
 import java.util.Queue;
 
 abstract class BaseKeyPool<T extends Poolable> {

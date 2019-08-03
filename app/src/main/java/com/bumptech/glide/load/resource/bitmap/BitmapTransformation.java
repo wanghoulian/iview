@@ -3,19 +3,21 @@ package com.bumptech.glide.load.resource.bitmap;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.util.Util;
+
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 
 /**
- * A simple {@link Transformation} for transforming
+ * A simple {@link com.bumptech.glide.load.Transformation} for transforming
  * {@link Bitmap}s that abstracts away dealing with
- * {@link Resource} objects for subclasses.
+ * {@link com.bumptech.glide.load.engine.Resource} objects for subclasses.
  *
  * Use cases will look something like this:
  * <pre>
@@ -102,11 +104,11 @@ public abstract class BitmapTransformation implements Transformation<Bitmap> {
    * returned to the BitmapPool and/or recycled.
    *
    * <p>outWidth and outHeight will never be
-   * {@link Target#SIZE_ORIGINAL},
+   * {@link com.bumptech.glide.request.target.Target#SIZE_ORIGINAL},
    * this class converts them to be the size of the Bitmap we're going to transform before calling
    * this method.
    *
-   * @param pool        A {@link BitmapPool} that can
+   * @param pool        A {@link com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool} that can
    *                    be used to obtain and return intermediate {@link Bitmap}s used in this
    *                    transformation. For every {@link Bitmap} obtained from the
    *                    pool during this transformation, a {@link Bitmap} must also
@@ -118,5 +120,5 @@ public abstract class BitmapTransformation implements Transformation<Bitmap> {
    *                    need to match exactly).
    */
   protected abstract Bitmap transform(
-      @NonNull BitmapPool pool, @NonNull Bitmap toTransform, int outWidth, int outHeight);
+          @NonNull BitmapPool pool, @NonNull Bitmap toTransform, int outWidth, int outHeight);
 }

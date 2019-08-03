@@ -6,8 +6,10 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.VisibleForTesting;
+
 import com.bumptech.glide.util.Synthetic;
 import com.bumptech.glide.util.Util;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -193,7 +195,8 @@ public class SizeConfigStrategy implements LruPoolStrategy {
   static final class Key implements Poolable {
     private final KeyPool pool;
 
-    @Synthetic int size;
+    @Synthetic
+    int size;
     private Config config;
 
     public Key(KeyPool pool) {

@@ -9,6 +9,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.util.Log;
+
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Synthetic;
 
@@ -18,9 +19,11 @@ import com.bumptech.glide.util.Synthetic;
 final class DefaultConnectivityMonitor implements ConnectivityMonitor {
   private static final String TAG = "ConnectivityMonitor";
   private final Context context;
-  @SuppressWarnings("WeakerAccess") @Synthetic final ConnectivityListener listener;
+  @SuppressWarnings("WeakerAccess") @Synthetic
+  final ConnectivityListener listener;
 
-  @SuppressWarnings("WeakerAccess") @Synthetic boolean isConnected;
+  @SuppressWarnings("WeakerAccess") @Synthetic
+  boolean isConnected;
   private boolean isRegistered;
 
   private final BroadcastReceiver connectivityReceiver = new BroadcastReceiver() {

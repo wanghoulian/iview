@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.Initializable;
 import com.bumptech.glide.load.engine.Resource;
@@ -17,7 +18,7 @@ import com.bumptech.glide.util.Preconditions;
  * {@link Bitmap} on the first call to {@link #get()}.
  */
 public final class LazyBitmapDrawableResource implements Resource<BitmapDrawable>,
-    Initializable {
+        Initializable {
 
   private final Resources resources;
   private final Resource<Bitmap> bitmapResource;
@@ -41,7 +42,7 @@ public final class LazyBitmapDrawableResource implements Resource<BitmapDrawable
    */
   @Deprecated
   public static LazyBitmapDrawableResource obtain(Resources resources, BitmapPool bitmapPool,
-      Bitmap bitmap) {
+                                                  Bitmap bitmap) {
     return
         (LazyBitmapDrawableResource) obtain(resources, BitmapResource.obtain(bitmap, bitmapPool));
   }

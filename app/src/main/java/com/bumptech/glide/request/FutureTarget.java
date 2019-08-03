@@ -1,10 +1,11 @@
 package com.bumptech.glide.request;
 
 import com.bumptech.glide.request.target.Target;
+
 import java.util.concurrent.Future;
 
 /**
- * An interface for an object that is both a {@link Target} and a
+ * An interface for an object that is both a {@link com.bumptech.glide.request.target.Target} and a
  * {@link Future}. For example:
  * <pre>
  * {@code
